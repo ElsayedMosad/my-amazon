@@ -1,0 +1,246 @@
+export const allItems = [
+  { id: 200, title: "All Departments" },
+  { id: 201, title: "Arts & Crafts" },
+  { id: 202, title: "Automotive" },
+  { id: 203, title: "Baby" },
+  { id: 204, title: "Beauty & Personal Care" },
+  { id: 205, title: "Books" },
+  { id: 206, title: "Boys' Fashion" },
+  { id: 207, title: "Computers" },
+  { id: 208, title: "Deals" },
+  { id: 209, title: "Digital Music" },
+  { id: 210, title: "Electronics" },
+  { id: 211, title: "Girls' Fashion" },
+  { id: 212, title: "Health & Household" },
+  { id: 213, title: "Home & Kitchen" },
+  { id: 214, title: "Industrial & Scientific" },
+  { id: 215, title: "Kindle Store" },
+  { id: 216, title: "Luggage" },
+  { id: 217, title: "Men's Fashion" },
+  { id: 218, title: "Movies & TV" },
+  { id: 219, title: "Music, CDs & Vinyl" },
+  { id: 220, title: "Pet Supplies" },
+  { id: 221, title: "Prime Video" },
+  { id: 222, title: "Software" },
+  { id: 223, title: "Sports & Outdoors" },
+  { id: 224, title: "Tools & Home Improvement" },
+  { id: 225, title: "Toys & Games" },
+  { id: 226, title: "Video Games" },
+  { id: 227, title: "Women's Fashion" },
+];
+export const footerTwoData = [
+  {
+    id: 400,
+    title: "Get to Know Us",
+    listItem: [
+      "Careers",
+      "Blog",
+      "About Amazon",
+      " Investor Relations",
+      " Amazon Devices",
+      "Amazon Science",
+    ],
+  },
+  {
+    id: 401,
+    title: "Make Money with Us",
+    listItem: [
+      "Sell products on Amazon",
+      "Sell on Amazon Business",
+      "Sell apps on Amazon",
+      "Become an Affiliate",
+      "Advertise Your Products",
+      " Self-Publish with Us",
+      "Host an Amazon Hub",
+      "›See More Make Money with Us",
+    ],
+  },
+
+  {
+    id: 402,
+    title: "Amazon Payment Products",
+    listItem: [
+      "Amazon Business Card",
+      "Shop with Points",
+      "Reload Your Balance",
+      "Amazon Currency Converter",
+    ],
+  },
+
+  {
+    id: 403,
+    title: "Let Us Help You",
+    listItem: [
+      "Amazon and COVID-19",
+      "Your Account",
+      "Your Orders",
+      "Shipping Rates & Policies",
+      "Returns & Replacements",
+      "Manage Your Content and Devices",
+      "Amazon Assistant",
+      "Help",
+    ],
+  },
+];
+export const footerThreeData = [
+  {
+    id: 1000,
+    title: "Amazon Music",
+    desc: "Stream millions of songs",
+  },
+  {
+    id: 1001,
+    title: "Amazon Advertising    ",
+    desc: "Find, attract, and engage customers    ",
+  },
+  // {
+  //   id: 1002,
+  //   title: "Amazon Drive",
+  //   desc: "Cloud storage from Amazon",
+  // },
+  {
+    id: 1003,
+    title: "6pm",
+    desc: "Score deals on fashion brands",
+  },
+  {
+    id: 1004,
+    title: "AbeBooks",
+    desc: "Books, art & collectibles",
+  },
+  {
+    id: 1005,
+    title: "ACX",
+    desc: "Audiobook Publishing Made Easy",
+  },
+  {
+    id: 1006,
+    title: "Sell on Amazon",
+    desc: "Start a Selling Account",
+  },
+  {
+    id: 1007,
+    title: "Amazon Business",
+    desc: "Everything For Your Business",
+  },
+  {
+    id: 1008,
+    title: "AmazonGlobal",
+    desc: "Ship Orders Internationally",
+  },
+  {
+    id: 1009,
+    title: "Home Services",
+    desc: "Experienced Pros appiness Guarantee",
+  },
+  // {
+  //   id: 1010,
+  //   title: "Amazon Ignite",
+  //   desc: "Sell your original Digital Educational Resources    ",
+  // },
+  {
+    id: 1011,
+    title: "    Amazon Web Services",
+    desc: "Scalable Cloud Computing Services",
+  },
+  {
+    id: 1012,
+    title: "Audible",
+    desc: "Listen to Books & Original Audio Performances",
+  },
+  {
+    id: 1013,
+    title: "Book Depository",
+    desc: "Books With Free Delivery Worldwide",
+  },
+  {
+    id: 1014,
+    title: "Box Office Mojo",
+    desc: "Find Movie Box Office Data",
+  },
+  {
+    id: 1015,
+    title: "ComiXology",
+    desc: "Thousands of Digital Comics",
+  },
+  {
+    id: 1016,
+    title: "DPReview",
+    desc: "Digital Photography",
+  },
+  {
+    id: 1018,
+    title: "Fabric",
+    desc: "Sewing, Quilting & Knitting",
+  },
+  {
+    id: 1019,
+    title: "Goodreads",
+    desc: "Book reviews & recommendations",
+  },
+  {
+    id: 1020,
+    title: "IMDb",
+    desc: "Movies, TV & Celebrities",
+  },
+  {
+    id: 1021,
+    title: "IMDbPro",
+    desc: "Get Info Entertainment Professionals Need",
+  },
+  {
+    id: 1022,
+    title: "Kindle Direct Publishing",
+    desc: "Indie Digital & Print Publishing Made Easy",
+  },
+  {
+    id: 1023,
+    title: "Prime Video Direct",
+    desc: "Video Distribution Made Easy",
+  },
+  {
+    id: 1024,
+    title: "Shopbop",
+    desc: "descigner Fashion Brands",
+  },
+  {
+    id: 1025,
+    title: "Woot!",
+    desc: "Deals and Shenanigans",
+  },
+  {
+    id: 1026,
+    title: "Zappos",
+    desc: "Shoes & Clothing",
+  },
+  {
+    id: 1027,
+    title: "Ring",
+    desc: "Smart Home Security Systems",
+  },
+  {
+    id: 1028,
+    title: "eero WiFi",
+    desc: "Stream 4K Video in Every Room",
+  },
+  {
+    id: 1029,
+    title: "Blink",
+    desc: "Smart Security for Every Home",
+  },
+  {
+    id: 1030,
+    title: "Neighbors App",
+    desc: "Real-Time Crime & Safety Alerts",
+  },
+  {
+    id: 1031,
+    title: "Amazon Subscription Boxes",
+    desc: "Top subscription boxes - right to your doo",
+  },
+  {
+    id: 1032,
+    title: "PillPack",
+    desc: "Pharmacy Simplified",
+  },
+];

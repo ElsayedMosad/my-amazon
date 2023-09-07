@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .borderHover {
+    @apply px-2 border border-transparent hover:border-white duration-100 cursor-pointer;
+  }
+  .footerBut {
+    @apply h-8 rounded-sm font-medium cursor-pointer text-xs px-2 tracking-wider border-[1px] border-gray-500 flex items-center justify-center;
+  }
+  .productLinks {
+    @apply px-2 py-1 flex items-center gap-1 border-b-[1px] border-gray-400 hover:text-gray-900 hover:border-gray-600 duration-100 cursor-pointer;
+  }
+  .addCart {
+    /* @apply w-full text-black my-2 rounded-md font-medium text-center p-2 bg-gradient-to-tr from-yellow-400 to-yellow-200  hover:from-yellow-300 to hover:to-yellow-400 active:from-yellow-400  active:to-yellow-500 border border-yellow-500 hover:border-yellow-600 duration-200 cursor-pointer; */
+  }
+}
