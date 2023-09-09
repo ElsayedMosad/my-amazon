@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import {
@@ -7,9 +8,22 @@ import {
   increaseQuantity,
 } from "../../rtk/slices/amazonSlice";
 import EmptyCart from "./EmptyCart";
+import { useEffect } from "react";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 const Cart = () => {
   const productsCart = useSelector((state) => state.amazon.products);
-  // console.log(productsCart);
+  const userInfo = useSelector((state) => state.userReducer.userInfo);
+  useEffect(() => {
+    const editDocCartFirebase = async () => {
+      await setDoc(doc(db, "cart", userInfo.userId), {
+        myProductsCart: productsCart,
+      });
+    };
+    if (userInfo) {
+      editDocCartFirebase();
+    }
+  }, [productsCart]);
   const dispatch = useDispatch();
 
   return (
