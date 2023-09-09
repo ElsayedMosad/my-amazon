@@ -14,12 +14,12 @@ import { db } from "../../firebase";
 const Cart = () => {
   const productsCart = useSelector((state) => state.amazon.products);
   const userInfo = useSelector((state) => state.userReducer.userInfo);
+  const editDocCartFirebase = async () => {
+    await setDoc(doc(db, "cart", userInfo.userId), {
+      myProductsCart: productsCart,
+    });
+  };
   useEffect(() => {
-    const editDocCartFirebase = async () => {
-      await setDoc(doc(db, "cart", userInfo.userId), {
-        myProductsCart: productsCart,
-      });
-    };
     if (userInfo) {
       editDocCartFirebase();
     }
