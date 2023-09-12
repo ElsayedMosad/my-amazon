@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import StarIcon from "@mui/icons-material/Star";
 import ApiIcon from "@mui/icons-material/Api";
@@ -12,6 +12,10 @@ import { db } from "../../firebase";
 import { useEffect } from "react";
 
 const Products = () => {
+  const products = useLoaderData();
+
+  const dispatch = useDispatch();
+
   const userInfo = useSelector((state) => state.userReducer.userInfo);
   const productsCart = useSelector((state) => state.amazon.products);
 
@@ -42,9 +46,6 @@ const Products = () => {
       }
     }
   };
-
-  const products = useLoaderData();
-  const dispatch = useDispatch();
 
   const fetchCartFirebase = async () => {
     if (userInfo) {
@@ -77,20 +78,40 @@ const Products = () => {
               />
               <ul className="  absolute w-full font-headFont text-gray-600 bg-gray-100 left-0 bottom-0 translate-y-full duration-500 text-sm font-medium leading-5 tracking-wide group-hover:translate-y-0">
                 <li className="productLinks">
-                  <ApiIcon sx={{ fontSize: 19 }} />
-                  <span>Compare</span>
+                  <div
+                    // to={"details/" + product.id}
+                    className="px-2 py-1 flex items-center gap-1"
+                  >
+                    <ApiIcon sx={{ fontSize: 19 }} />
+                    <span>Compare</span>
+                  </div>
                 </li>
                 <li className="productLinks">
-                  <ShoppingCartIcon sx={{ fontSize: 19 }} />
-                  <span>Add to Cart</span>
+                  <div
+                    // to={"details/" + product.id}
+                    className="px-2 py-1 flex items-center gap-1"
+                  >
+                    <ShoppingCartIcon sx={{ fontSize: 19 }} />
+                    <span>Add to Cart</span>
+                  </div>
                 </li>
                 <li className="productLinks">
-                  <ArrowCircleRightIcon sx={{ fontSize: 19 }} />
-                  <span>View Details</span>
+                  <Link
+                    to={"details/" + product.id}
+                    className="px-2 py-1 flex items-center gap-1"
+                  >
+                    <ArrowCircleRightIcon sx={{ fontSize: 19 }} />
+                    <span>View Details</span>
+                  </Link>
                 </li>
                 <li className="productLinks">
-                  <FavoriteIcon sx={{ fontSize: 19 }} />
-                  <span>Add to Wish List</span>
+                  <div
+                    // to={"details/" + product.id}
+                    className="px-2 py-1 flex items-center gap-1"
+                  >
+                    <FavoriteIcon sx={{ fontSize: 19 }} />
+                    <span>Add to Wish List</span>
+                  </div>
                 </li>
               </ul>
             </div>

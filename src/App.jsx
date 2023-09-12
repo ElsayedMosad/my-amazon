@@ -13,6 +13,7 @@ import { ProductsData } from "./api/api";
 import Cart from "./components/cart/Cart";
 import Signin from "./components/account/Signin";
 import Register from "./components/account/Register";
+import Details from "./components/details/Details";
 const App = () => {
   const Layout = () => {
     return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index loader={ProductsData} element={<Home />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="details/:productId" element={<Details />} />
         </Route>
         <Route path="signin" element={<Signin />} />
         <Route path="register" element={<Register />} />
