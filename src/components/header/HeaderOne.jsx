@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { flagUSA, logo } from "../../assets/images";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { allItems } from "../../constants/dataList";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,8 +15,11 @@ import { signOutUser } from "../../rtk/slices/userSlice";
 
 const HeaderOne = () => {
   const [showItem, setShowItem] = useState(false);
-  const products = useSelector((state) => state.amazon.products);
+  const [searchValue, setSearchValue] = useState("");
+  const [searchProducts, setSearchProducts] = useState([]);
+  const products = useSelector((state) => state.cartReducer.cartProducts);
   const userInfo = useSelector((state) => state.userReducer.userInfo);
+  const myProduct = useSelector((state) => state.productReducer.products);
   const dispatch = useDispatch();
 
   const handleSignOut = () => {
@@ -29,6 +33,19 @@ const HeaderOne = () => {
         // An error happened.
       });
   };
+
+  const handleSearch = (e) => {
+    // console.log(e.target.value);
+    setSearchValue(e.target.value);
+  };
+  useEffect(() => {
+    // console.log(myProduct);
+    const searchResult = myProduct.filter((prod) =>
+      prod.title.toLocaleLowerCase().includes(searchValue.toLowerCase())
+    );
+    // console.log(searchValue);
+    setSearchProducts(searchResult);
+  }, [searchValue]);
   return (
     <div className="text-white 	bg-amazonBlue px-4 py-3 flex items-center gap-x-1 sm:gap-x-4 justify-between ">
       <Link to="/" className={userInfo ? "hidden sml:flex " : ""}>
@@ -42,7 +59,6 @@ const HeaderOne = () => {
           <p className=" text-xs text-lightText font-light whitespace-nowrap	">
             Deliver to
           </p>
-
           <p className="font-semibold text-white -mt-1 text-sm">USA</p>
         </div>
       </div>
@@ -68,13 +84,60 @@ const HeaderOne = () => {
           <span className="h-full flex items-center justify-center">All</span>
           <ArrowDropDownIcon sx={{ fontSize: 18 }} />
         </div>
-        <input
-          className=" outline-none border-none text-amazonBlue px-2 h-full flex-grow"
-          type="text"
-          placeholder="Search Amazon"
-        />
-        <div className="h-full px-3 bg-amazonYellow hover:bg-[#f3a847] duration-300 flex items-center justify-center cursor-pointer rounded-tr-md rounded-br-md  ">
-          <SearchIcon sx={{ fontSize: 26 }} />
+        <div className=" flex flex-grow h-full relative">
+          <input
+            onChange={handleSearch}
+            className=" outline-none border-none text-amazonBlue px-2 h-full flex-grow"
+            type="text"
+            placeholder="Search Amazon"
+          />
+          {searchValue && searchProducts ? (
+            <ul className=" absolute top-12 rounded-md w-full h-[350px] bg-white  overflow-y-scroll">
+              {searchProducts.map((ele) => (
+                <li key={ele.id} className="  border-b-[1px] w-full">
+                  <Link
+                    to={"details/" + ele.id}
+                    className="px-1 py-1 flex items-center gap-3 w-full "
+                  >
+                    <div className="flex items-center justify-center p-2">
+                      <img
+                        src={ele.image}
+                        alt="image"
+                        className="object-contain w-14 "
+                      />
+                    </div>
+                    <div className=" grow pr-2">
+                      <div className=" flex justify-between items-center">
+                        <h3 className=" text-sm font-medium text-amazonBlue font-headFont ">
+                          {ele.title.slice(0, 12)}
+                        </h3>
+                        <span className=" text-xs italic  capitalize text-gray-700 font-medium   ">
+                          {ele.category}
+                        </span>
+                      </div>
+                      <p className=" text-xs tracking-wide leading-5">
+                        {ele.description.slice(0, 40)}...
+                      </p>
+                      <div className=" flex items-center">
+                        <p className=" text-sm  ">
+                          Price:{" "}
+                          <span className=" font-medium">
+                            {" "}
+                            {" " + ele.price}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ""
+          )}
+          <div className="h-full px-3 bg-amazonYellow hover:bg-[#f3a847] duration-300 flex items-center justify-center cursor-pointer rounded-tr-md rounded-br-md  ">
+            <SearchIcon sx={{ fontSize: 26 }} />
+          </div>
         </div>
       </div>
       <div className="borderHover hidden md:flex pl-1 py-2">

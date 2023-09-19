@@ -6,13 +6,13 @@ import {
   decreaseQuantity,
   deleteProduct,
   increaseQuantity,
-} from "../../rtk/slices/amazonSlice";
+} from "../../rtk/slices/cartSlice";
 import EmptyCart from "./EmptyCart";
 import { useEffect } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 const Cart = () => {
-  const productsCart = useSelector((state) => state.amazon.products);
+  const productsCart = useSelector((state) => state.cartReducer.cartProducts);
   const userInfo = useSelector((state) => state.userReducer.userInfo);
   const editDocCartFirebase = async () => {
     await setDoc(doc(db, "cart", userInfo.userId), {

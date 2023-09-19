@@ -4,15 +4,15 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../rtk/slices/amazonSlice";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { addToCart } from "../../rtk/slices/cartSlice";
 
 const Details = () => {
   let { productId } = useParams();
 
   const userInfo = useSelector((state) => state.userReducer.userInfo);
-  const productsCart = useSelector((state) => state.amazon.products);
+  const productsCart = useSelector((state) => state.cartReducer.products);
 
   const dispatch = useDispatch();
 

@@ -1,42 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  products: [],
+  cartProducts: [],
 };
 
 
-export const amazonSlice = createSlice({
-  name: "amazonSlice",
+export const cartSlice = createSlice({
+  name: "cartSlice",
   initialState,
 
   reducers: {
     setCartProducts: (state, action) => {
-      state.products = action.payload
+      state.cartProducts = action.payload
     },
     addToCart: (state, action) => {
-      const findIndex = state.products.findIndex(
+      const findIndex = state.cartProducts.findIndex(
         (element) => element.id === action.payload.id
       );
       findIndex === -1
-        ? state.products.push({ ...action.payload, quantity: 1 })
-        : state.products[findIndex].quantity++;
+        ? state.cartProducts.push({ ...action.payload, quantity: 1 })
+        : state.cartProducts[findIndex].quantity++;
 
     },
     deleteProduct: (state, action) => {
-      state.products = state.products.filter(
+      state.cartProducts = state.cartProducts.filter(
         (product) => product.id !== action.payload
       );
     },
     clearCart: (state) => {
-      state.products = [];
+      state.cartProducts = [];
     },
     increaseQuantity: (state, action) => {
-      let product = state.products.find(
+      let product = state.cartProducts.find(
         (product) => product.id === action.payload
       );
       product.quantity++;
     },
     decreaseQuantity: (state, action) => {
-      let product = state.products.find(
+      let product = state.cartProducts.find(
         (product) => product.id === action.payload
       );
       product.quantity !== 1 ? product.quantity-- : "";
@@ -51,5 +51,5 @@ export const {
   clearCart,
   increaseQuantity,
   decreaseQuantity,
-} = amazonSlice.actions;
-export default amazonSlice.reducer;
+} = cartSlice.actions;
+export default cartSlice.reducer;

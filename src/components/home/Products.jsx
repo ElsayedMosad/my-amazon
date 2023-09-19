@@ -6,18 +6,21 @@ import ApiIcon from "@mui/icons-material/Api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { addToCart, setCartProducts } from "../../rtk/slices/amazonSlice";
+import { addToCart, setCartProducts } from "../../rtk/slices/cartSlice";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect } from "react";
+import { setProduct } from "../../rtk/slices/productsSlice";
 
 const Products = () => {
   const products = useLoaderData();
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(setProduct(products));
+  }, []);
   const userInfo = useSelector((state) => state.userReducer.userInfo);
-  const productsCart = useSelector((state) => state.amazon.products);
+  const productsCart = useSelector((state) => state.cartReducer.cartProducts);
 
   const editDatabaseFromProducts = (data) => {
     let allProductsCart = productsCart;

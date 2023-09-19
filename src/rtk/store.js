@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import amazonReducer from "./slices/amazonSlice";
+import cartReducer from "./slices/cartSlice";
+import productReducer from "./slices/productsSlice";
 import {
   persistStore,
   persistReducer,
@@ -24,7 +25,8 @@ const amazonPersistReducer = persistReducer(persistConfig, userReducer);
 
 export const store = configureStore({
   reducer: {
-    amazon: amazonReducer,
+    cartReducer: cartReducer,
+    productReducer: productReducer,
     userReducer: amazonPersistReducer
   },
   // reducer: { amazon: amazonPersistReducer },
