@@ -22,8 +22,8 @@ const HeaderOne = () => {
   const myProduct = useSelector((state) => state.productReducer.products);
   const dispatch = useDispatch();
 
-  const handleSignOut = () => {
-    signOut(auth)
+  const handleSignOut = async () => {
+    await signOut(auth)
       .then(() => {
         // Sign-out successful.
         dispatch(signOutUser());
@@ -92,7 +92,10 @@ const HeaderOne = () => {
             placeholder="Search Amazon"
           />
           {searchValue && searchProducts ? (
-            <ul className=" absolute top-12 rounded-md w-full h-[350px] bg-white  overflow-y-scroll">
+            <ul
+              className=" absolute top-12 rounded-md w-full h-[350px] bg-white  overflow-y-scroll"
+              onClick={() => setSearchValue("")}
+            >
               {searchProducts.map((ele) => (
                 <li key={ele.id} className="  border-b-[1px] w-full">
                   <Link

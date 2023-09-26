@@ -14,7 +14,14 @@ import Cart from "./components/cart/Cart";
 import Signin from "./components/account/Signin";
 import Register from "./components/account/Register";
 import Details from "./components/details/Details";
+import { useEffect, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3000);
+  }, []);
   const Layout = () => {
     return (
       <>
@@ -41,7 +48,24 @@ const App = () => {
 
   return (
     <div className=" font-bodyFont bg-gray-100 ">
-      <RouterProvider router={router}></RouterProvider>
+      {loading ? (
+        <div className=" w-full min-h-screen flex justify-center items-center  bg-gray-200">
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#F3A847"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        </div>
+      ) : (
+        <>
+          <RouterProvider router={router}></RouterProvider>
+        </>
+      )}
     </div>
   );
 };

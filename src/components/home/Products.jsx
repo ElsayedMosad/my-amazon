@@ -81,19 +81,13 @@ const Products = () => {
               />
               <ul className="  absolute w-full font-headFont text-gray-600 bg-gray-100 left-0 bottom-0 translate-y-full duration-500 text-sm font-medium leading-5 tracking-wide group-hover:translate-y-0">
                 <li className="productLinks">
-                  <div
-                    // to={"details/" + product.id}
-                    className="px-2 py-1 flex items-center gap-1"
-                  >
+                  <div className="px-2 py-1 flex items-center gap-1">
                     <ApiIcon sx={{ fontSize: 19 }} />
                     <span>Compare</span>
                   </div>
                 </li>
                 <li className="productLinks">
-                  <div
-                    // to={"details/" + product.id}
-                    className="px-2 py-1 flex items-center gap-1"
-                  >
+                  <div className="px-2 py-1 flex items-center gap-1">
                     <ShoppingCartIcon sx={{ fontSize: 19 }} />
                     <span>Add to Cart</span>
                   </div>
@@ -108,10 +102,7 @@ const Products = () => {
                   </Link>
                 </li>
                 <li className="productLinks">
-                  <div
-                    // to={"details/" + product.id}
-                    className="px-2 py-1 flex items-center gap-1"
-                  >
+                  <div className="px-2 py-1 flex items-center gap-1">
                     <FavoriteIcon sx={{ fontSize: 19 }} />
                     <span>Add to Wish List</span>
                   </div>

@@ -86,7 +86,6 @@ const Register = () => {
           };
           editDocCartFirebase();
           // console.log(user.uid);
-          // console.log(user.uid);
 
           updateProfile(auth.currentUser, {
             displayName: userName,
@@ -102,12 +101,6 @@ const Register = () => {
               // An error occurred
               // ...
             });
-          //   const editDocCartFirebase = async () => {
-          //   await setDoc(doc(db, "cart", ""), {
-          //     myProductsCart: null,
-          //   });
-          // };
-          // editDocCartFirebase()
 
           setLoading(false);
           setUserName("");
@@ -241,8 +234,6 @@ const Register = () => {
                   </button>
                   {loading && (
                     <div className=" flex justify-center">
-                      {" "}
-                      {/* <p>heoo</p> */}
                       <ThreeDots
                         height="50"
                         width="50"

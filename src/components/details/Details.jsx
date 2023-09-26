@@ -10,9 +10,11 @@ import { addToCart } from "../../rtk/slices/cartSlice";
 
 const Details = () => {
   let { productId } = useParams();
+  // console.log(productId);
 
   const userInfo = useSelector((state) => state.userReducer.userInfo);
-  const productsCart = useSelector((state) => state.cartReducer.products);
+  // const productsCart = useSelector((state) => state.cartReducer.products);
+  const productsCart = useSelector((state) => state.cartReducer.cartProducts);
 
   const dispatch = useDispatch();
 
@@ -31,7 +33,7 @@ const Details = () => {
   };
   useEffect(() => {
     fetchProductById(productId);
-  }, []);
+  }, [productId]);
 
   const editDatabaseFromDetails = (data) => {
     let allProductsCart = productsCart;
