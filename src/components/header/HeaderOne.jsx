@@ -93,7 +93,7 @@ const HeaderOne = () => {
           />
           {searchValue && searchProducts ? (
             <ul
-              className=" absolute top-12 rounded-md w-full h-[350px] bg-white  overflow-y-scroll"
+              className=" absolute top-12 rounded-md w-full max-h-[350px] bg-white  overflow-y-scroll"
               onClick={() => setSearchValue("")}
             >
               {searchProducts.map((ele) => (
