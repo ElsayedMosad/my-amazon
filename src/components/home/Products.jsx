@@ -75,7 +75,8 @@ const Products = () => {
             </span>
             <div className="flex items-center justify-center p-7 relative group ">
               <img
-                src={product.image}
+                src={product.images[0]}
+                // src={product.image}
                 alt="product cart"
                 className="object-contain h-56 	"
               />

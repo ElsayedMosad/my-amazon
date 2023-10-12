@@ -42,7 +42,8 @@ const Cart = () => {
               >
                 <div className="flex items-center justify-center p-6 mdl:justify-start   mdl:w-2/6 lgl:w-1/5 ">
                   <img
-                    src={product.image}
+                    // src={product.image}
+                    src={product.images[0]}
                     alt="image"
                     className="object-contain w-40 "
                   />

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
 
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { doc, setDoc } from "firebase/firestore";
@@ -13,27 +13,39 @@ const Details = () => {
   // console.log(productId);
 
   const userInfo = useSelector((state) => state.userReducer.userInfo);
-  // const productsCart = useSelector((state) => state.cartReducer.products);
+  // const myProduct = useSelector((state) => state.productReducer.products);
+  // console.log(myProduct);
+
   const productsCart = useSelector((state) => state.cartReducer.cartProducts);
 
   const dispatch = useDispatch();
 
   let [product, setProduct] = useState({});
   // console.log(product);
-  const fetchProductById = async (id) => {
-    try {
-      const response = await axios.get(
-        `https://fakestoreapi.com/products/${id}`
-      );
-      setProduct(response.data);
-      // console.log(response.data);
-    } catch (error) {
-      console.error("Error fetching product:", error);
-    }
+  const fetchProductById = (id) => {
+    // console.log(id);
+    // try {
+    //   const response = await axios.get(
+    //     `https://dummyjson.com/products/${id}`
+    //     // `https://fakestoreapi.com/products/${id}`
+    //   );
+    //   console.log(response);
+    //   setProduct(response.data);
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.error("Error fetching product:", error);
+    // }
+    fetch(`https://dummyjson.com/products/${id}`)
+      .then((res) => res.json())
+      .then((json) => setProduct(json));
+    // setProduct(myProduct);
+    // console.log(product);
+    // console.log(product);
   };
   useEffect(() => {
     fetchProductById(productId);
   }, [productId]);
+  // console.log(productId);
 
   const editDatabaseFromDetails = (data) => {
     let allProductsCart = productsCart;
@@ -67,11 +79,22 @@ const Details = () => {
     <div className="py-5 px-5  bg-gray-100">
       <div className=" px-4 py-6 max-w-5xl mx-auto bg-white  rounded-lg mdl:flex items-center justify-between gap-3">
         <div className="flex items-center justify-center p-6 mdl:justify-start   mdl:w-2/6 lgl:w-1/5 ">
-          <img
-            src={product.image}
+          {product?.images
+            ?.filter((e, i) => i === 0)
+            .map((link, index) => (
+              <img
+                src={link}
+                alt={`Image ${index}`}
+                key={index}
+                className="object-contain w-40 "
+              />
+            ))}
+          {/* <img
+            // src={product.images[0]}
+            src={product?.images[0]}
             alt="image"
             className="object-contain w-40 "
-          />
+          /> */}
         </div>
         <div className=" lg:flex items-center justify-between gap-3 mdl:w-4/6 lgl:w-4/5">
           <div>

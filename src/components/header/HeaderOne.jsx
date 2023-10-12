@@ -104,7 +104,8 @@ const HeaderOne = () => {
                   >
                     <div className="flex items-center justify-center p-2">
                       <img
-                        src={ele.image}
+                        // src={ele.image}
+                        src={ele.images[0]}
                         alt="image"
                         className="object-contain w-14 "
                       />
