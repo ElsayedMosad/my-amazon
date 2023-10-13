@@ -41,12 +41,22 @@ const Cart = () => {
                 className=" px-2 py-4 border-b-[1px] border-gray-300 mdl:flex items-center justify-between gap-3"
               >
                 <div className="flex items-center justify-center p-6 mdl:justify-start   mdl:w-2/6 lgl:w-1/5 ">
-                  <img
+                  {/* <img
                     // src={product.image}
                     src={product.images[0]}
                     alt="image"
                     className="object-contain w-40 "
-                  />
+                  /> */}
+                  {product?.images
+                    ?.filter((e, i) => i === 0)
+                    .map((link, index) => (
+                      <img
+                        src={link}
+                        alt={`Image ${index}`}
+                        key={index}
+                        className="object-contain w-40 "
+                      />
+                    ))}
                 </div>
                 <div className=" lg:flex items-center justify-between gap-3 mdl:w-4/6 lgl:w-4/5">
                   <div>

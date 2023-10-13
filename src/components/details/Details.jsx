@@ -86,7 +86,7 @@ const Details = () => {
                 src={link}
                 alt={`Image ${index}`}
                 key={index}
-                className="object-contain w-40 "
+                className="object-contain w-80 "
               />
             ))}
           {/* <img
